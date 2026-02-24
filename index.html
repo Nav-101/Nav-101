@@ -1,67 +1,558 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en-GB">
 <head>
-    <title>Your Name | Hardware Portfolio</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 40px;
-            max-width: 900px;
-            line-height: 1.6;
-        }
-        h1 { color: #222; }
-        h2 { margin-top: 40px; }
-        a {
-            text-decoration: none;
-            color: #0066cc;
-        }
-        a:hover { text-decoration: underline; }
-        .project {
-            border: 1px solid #ddd;
-            padding: 20px;
-            margin-top: 20px;
-            border-radius: 8px;
-        }
-        .footer {
-            margin-top: 60px;
-            font-size: 14px;
-            color: #666;
-        }
-    </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Electronics hardware / embedded systems portfolio — mixed-signal design, power, ADC, networking, and firmware." />
+  <title>Naveed Salman — Electronics & Embedded Portfolio</title>
+
+  <style>
+    :root{
+      --bg: #0b1020;
+      --panel: rgba(255,255,255,0.06);
+      --panel2: rgba(255,255,255,0.08);
+      --text: rgba(255,255,255,0.92);
+      --muted: rgba(255,255,255,0.68);
+      --faint: rgba(255,255,255,0.45);
+      --line: rgba(255,255,255,0.12);
+      --accent: #77bdfb;
+      --accent2: #a78bfa;
+      --good: #86efac;
+      --warn: #fde68a;
+      --shadow: 0 18px 45px rgba(0,0,0,0.45);
+      --radius: 16px;
+      --radius2: 22px;
+      --max: 1100px;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+    }
+
+    *{ box-sizing: border-box; }
+    html, body{ height:100%; }
+    body{
+      margin:0;
+      font-family: var(--sans);
+      color: var(--text);
+      background:
+        radial-gradient(1200px 700px at 10% 10%, rgba(119,189,251,0.20), transparent 55%),
+        radial-gradient(900px 600px at 85% 20%, rgba(167,139,250,0.18), transparent 55%),
+        radial-gradient(700px 500px at 50% 100%, rgba(134,239,172,0.10), transparent 60%),
+        var(--bg);
+      line-height: 1.55;
+    }
+
+    a{ color: inherit; text-decoration: none; }
+    a:hover{ text-decoration: underline; text-decoration-color: rgba(119,189,251,0.7); }
+
+    .wrap{ max-width: var(--max); margin: 0 auto; padding: 28px 20px 70px; }
+
+    /* Top nav */
+    .nav{
+      position: sticky; top:0;
+      backdrop-filter: blur(10px);
+      background: linear-gradient(to bottom, rgba(11,16,32,0.85), rgba(11,16,32,0.55));
+      border-bottom: 1px solid var(--line);
+      z-index: 50;
+    }
+    .navinner{
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 14px 20px;
+      display:flex; align-items:center; justify-content: space-between; gap: 14px;
+    }
+    .brand{
+      display:flex; align-items:center; gap: 10px;
+      font-weight: 700;
+      letter-spacing: 0.2px;
+      white-space: nowrap;
+    }
+    .dot{
+      width: 10px; height: 10px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      box-shadow: 0 0 18px rgba(119,189,251,0.6);
+    }
+    .links{
+      display:flex; flex-wrap: wrap;
+      gap: 10px;
+      justify-content: flex-end;
+    }
+    .pill{
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.04);
+      padding: 7px 12px;
+      border-radius: 999px;
+      font-size: 0.92rem;
+      color: var(--muted);
+    }
+    .pill:hover{
+      background: rgba(255,255,255,0.07);
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    /* Hero */
+    .hero{
+      margin-top: 26px;
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.03));
+      border-radius: var(--radius2);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+    .heroinner{
+      display:grid;
+      grid-template-columns: 1.35fr 0.65fr;
+      gap: 0;
+    }
+    .heromain{ padding: 26px; }
+    .heroside{
+      padding: 26px;
+      border-left: 1px solid var(--line);
+      background: rgba(255,255,255,0.03);
+    }
+
+    h1{
+      margin: 0 0 10px;
+      font-size: clamp(1.8rem, 2.7vw, 2.6rem);
+      line-height: 1.15;
+      letter-spacing: -0.3px;
+    }
+    .tagline{
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: 1.03rem;
+      max-width: 62ch;
+    }
+    .badges{
+      display:flex; flex-wrap: wrap; gap: 10px;
+      margin: 16px 0 0;
+    }
+    .badge{
+      display:inline-flex; align-items:center; gap: 8px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.04);
+      border-radius: 999px;
+      padding: 8px 12px;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .badge b{ color: var(--text); font-weight: 650; }
+    .kbd{
+      font-family: var(--mono);
+      font-size: 0.88em;
+      padding: 2px 7px;
+      border-radius: 8px;
+      border: 1px solid var(--line);
+      background: rgba(0,0,0,0.25);
+      color: rgba(255,255,255,0.78);
+    }
+
+    .cta{
+      display:flex; flex-wrap: wrap; gap: 12px;
+      margin-top: 18px;
+    }
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      gap: 9px;
+      padding: 10px 14px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.04);
+      color: var(--text);
+      font-weight: 600;
+    }
+    .btn:hover{ background: rgba(255,255,255,0.07); text-decoration: none; }
+    .btn.primary{
+      border-color: rgba(119,189,251,0.45);
+      background: linear-gradient(135deg, rgba(119,189,251,0.25), rgba(167,139,250,0.18));
+    }
+
+    .mini{
+      margin: 0 0 14px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+    .card{
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.04);
+      border-radius: var(--radius);
+      padding: 14px;
+      margin-top: 12px;
+    }
+    .card h3{
+      margin:0 0 6px;
+      font-size: 1.05rem;
+      letter-spacing: -0.1px;
+    }
+    .card p{ margin:0; color: var(--muted); font-size: 0.95rem; }
+
+    /* Sections */
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 18px;
+    }
+    section{ margin-top: 22px; }
+    .sectionTitle{
+      display:flex; align-items: baseline; justify-content: space-between; gap: 12px;
+      margin: 28px 0 10px;
+    }
+    .sectionTitle h2{
+      margin: 0;
+      font-size: 1.35rem;
+      letter-spacing: -0.2px;
+    }
+    .sectionTitle .hint{
+      color: var(--faint);
+      font-size: 0.95rem;
+    }
+
+    .project{
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
+      border-radius: var(--radius2);
+      padding: 18px;
+      box-shadow: 0 10px 26px rgba(0,0,0,0.28);
+    }
+    .projectTop{
+      display:flex; align-items:flex-start; justify-content: space-between; gap: 14px;
+      margin-bottom: 10px;
+    }
+    .project h3{
+      margin:0;
+      font-size: 1.18rem;
+      letter-spacing: -0.2px;
+    }
+    .projMeta{
+      display:flex; flex-wrap: wrap; gap: 8px;
+      justify-content: flex-end;
+      padding-top: 2px;
+    }
+    .chip{
+      font-family: var(--mono);
+      font-size: 0.82rem;
+      padding: 4px 8px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(0,0,0,0.22);
+      color: rgba(255,255,255,0.75);
+      white-space: nowrap;
+    }
+    .project p{
+      margin: 0 0 12px;
+      color: var(--muted);
+      max-width: 75ch;
+    }
+    .bullets{
+      margin: 0 0 12px;
+      padding-left: 18px;
+      color: rgba(255,255,255,0.78);
+    }
+    .bullets li{ margin: 6px 0; }
+    .projectLinks{
+      display:flex; flex-wrap: wrap; gap: 10px;
+      margin-top: 10px;
+    }
+
+    /* About / skills */
+    .panel{
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.04);
+      border-radius: var(--radius2);
+      padding: 18px;
+    }
+    .panel h3{ margin: 0 0 10px; font-size: 1.15rem; }
+    .cols{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    .list{
+      margin: 0;
+      padding-left: 18px;
+      color: rgba(255,255,255,0.78);
+    }
+    .list li{ margin: 7px 0; }
+    .muted{ color: var(--muted); }
+
+    /* Footer */
+    footer{
+      margin-top: 36px;
+      padding-top: 16px;
+      border-top: 1px solid var(--line);
+      color: var(--faint);
+      display:flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .small{ font-size: 0.95rem; }
+    .mono{ font-family: var(--mono); }
+
+    /* Responsive */
+    @media (max-width: 880px){
+      .heroinner{ grid-template-columns: 1fr; }
+      .heroside{ border-left: none; border-top: 1px solid var(--line); }
+      .grid{ grid-template-columns: 1fr; }
+      .cols{ grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
+
 <body>
+  <div class="nav">
+    <div class="navinner">
+      <div class="brand">
+        <span class="dot" aria-hidden="true"></span>
+        <span>Naveed Salman</span>
+        <span class="pill" style="pointer-events:none;">Electronics • Embedded • Mixed-Signal</span>
+      </div>
 
-<h1>Your Name</h1>
-<p><strong>Electronics & Embedded Systems Engineer</strong></p>
+      <nav class="links" aria-label="Site">
+        <a class="pill" href="#projects">Projects</a>
+        <a class="pill" href="#about">About</a>
+        <a class="pill" href="#skills">Skills</a>
+        <a class="pill" href="#contact">Contact</a>
+      </nav>
+    </div>
+  </div>
 
-<p>
-Board-level mixed-signal design • Power architecture • CAN / USB / SPI • Bring-up & Debug
-</p>
+  <main class="wrap">
+    <!-- HERO -->
+    <header class="hero">
+      <div class="heroinner">
+        <div class="heromain">
+          <h1>Hardware-first engineering portfolio.</h1>
+          <p class="tagline">
+            I design mixed-signal electronics and embedded systems with a strong focus on
+            power integrity, measurement accuracy, robust interfaces, and clear documentation.
+            This site is a curated set of projects with schematics, layout, bring-up notes, and code.
+          </p>
 
-<hr>
+          <div class="cta">
+            <!-- Replace these links -->
+            <a class="btn primary" href="#projects" title="Jump to projects">View projects →</a>
+            <a class="btn" href="https://www.linkedin.com/in/naveed-salman-06336283/" target="_blank" rel="noopener">LinkedIn</a>
+            <a class="btn" href="https://github.com/YOUR_GITHUB_USERNAME" target="_blank" rel="noopener">GitHub</a>
+          </div>
 
-<h2>Projects</h2>
+          <div class="badges" aria-label="Highlights">
+            <span class="badge"><span class="kbd">PCB</span> <b>4-layer</b> mixed-signal layout</span>
+            <span class="badge"><span class="kbd">ADC</span> precision ΔΣ measurement chain</span>
+            <span class="badge"><span class="kbd">NET</span> CAN / Ethernet / USB</span>
+            <span class="badge"><span class="kbd">FW</span> STM32 / ESP32 firmware</span>
+          </div>
+        </div>
 
-<div class="project">
-    <h3>Precision ADC Mixed-Signal Board</h3>
-    <p>
-    4-layer PCB featuring a precision ΔΣ ADC, low-noise reference, analogue filtering, and digital MCU interface.
-    </p>
-    <p>
-    <a href="adc.html">View Full Case Study →</a>
-    </p>
-</div>
+        <aside class="heroside" aria-label="Quick facts">
+          <p class="mini">
+            <b>Quick index</b> — use this to guide reviewers (recruiters, clients, collaborators).
+          </p>
 
-<hr>
+          <div class="card">
+            <h3>Currently featured</h3>
+            <p>
+              ADC Daughter Board: precision analogue chain + layout notes + bring-up plan.
+            </p>
+          </div>
 
-<h2>Contact</h2>
-<p>Email: your@email.com</p>
-<p>LinkedIn: <a href="https://www.linkedin.com/in/YOURPROFILE" target="_blank">Your LinkedIn</a></p>
+          <div class="card">
+            <h3>What you’ll find</h3>
+            <p>
+              Schematics, PCB screenshots, design rationale, test strategy, and clean repo structure.
+            </p>
+          </div>
 
-<div class="footer">
-© 2026 Your Name — Selected non-confidential design excerpts only.
-</div>
+          <div class="card">
+            <h3>Navigation tip</h3>
+            <p>
+              Press <span class="kbd">Ctrl</span> + <span class="kbd">F</span> for keywords like <span class="kbd">ADS1220</span>, <span class="kbd">CAN</span>, <span class="kbd">Ethernet</span>.
+            </p>
+          </div>
+        </aside>
+      </div>
+    </header>
 
+    <!-- PROJECTS -->
+    <section id="projects">
+      <div class="sectionTitle">
+        <h2>Projects</h2>
+        <div class="hint">Short, defensible, and easy to review.</div>
+      </div>
+
+      <div class="grid">
+        <!-- Project 1 -->
+        <article class="project">
+          <div class="projectTop">
+            <div>
+              <h3>ADC Daughter Board (Precision Measurement)</h3>
+              <div class="muted small">Mixed-signal front-end • ΔΣ ADC • Reference • Filtering • Layout strategy</div>
+            </div>
+            <div class="projMeta" aria-label="Project tags">
+              <span class="chip">ADS1220</span>
+              <span class="chip">REF5025</span>
+              <span class="chip">Anti-alias</span>
+              <span class="chip">4-layer PCB</span>
+            </div>
+          </div>
+
+          <p>
+            A compact, precision analogue + ADC module designed as an interview-defensible project.
+            Includes schematic rationale, layout partitioning (analogue island vs digital), and a structured bring-up plan.
+          </p>
+
+          <ul class="bullets">
+            <li>Analogue signal chain: filtering, reference selection, grounding and return paths.</li>
+            <li>Noise and accuracy thinking: error sources, component choices, measurement strategy.</li>
+            <li>Documentation-first: clear README, test steps, expected waveforms.</li>
+          </ul>
+
+          <div class="projectLinks">
+            <!-- Replace with your actual project page/repo paths -->
+            <a class="btn" href="./projects/adc-daughter-board.html">Project page</a>
+            <a class="btn" href="https://github.com/YOUR_GITHUB_USERNAME/YOUR_REPO_NAME" target="_blank" rel="noopener">Repo</a>
+            <a class="btn" href="#" title="Add PDF later">PDF notes (soon)</a>
+          </div>
+        </article>
+
+        <!-- Project 2 (placeholder for future) -->
+        <article class="project">
+          <div class="projectTop">
+            <div>
+              <h3>SmartPowerGuardian (System-Level Mixed-Signal Board)</h3>
+              <div class="muted small">Power front-end • MCU • Ethernet • CAN-FD • SD card • Instrumentation</div>
+            </div>
+            <div class="projMeta">
+              <span class="chip">STM32</span>
+              <span class="chip">Ethernet PHY</span>
+              <span class="chip">CAN-FD</span>
+              <span class="chip">Power tree</span>
+            </div>
+          </div>
+
+          <p>
+            A portfolio-grade board combining robust power input protection, precision measurement,
+            and multiple comms interfaces. (Add public materials once you’re ready.)
+          </p>
+
+          <ul class="bullets">
+            <li>Power architecture: USB-C / barrel input, protection, buck + LDO rails.</li>
+            <li>Interface design: CAN, Ethernet, USB, SD — with proper layout constraints.</li>
+            <li>Bring-up checklist: staged validation from rails → clocks → IO → comms.</li>
+          </ul>
+
+          <div class="projectLinks">
+            <a class="btn" href="#" title="Create later">Project page (soon)</a>
+            <a class="btn" href="#" title="Create later">Repo (soon)</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ABOUT + SKILLS -->
+    <section id="about">
+      <div class="sectionTitle">
+        <h2>About</h2>
+        <div class="hint">Context reviewers care about.</div>
+      </div>
+
+      <div class="panel">
+        <div class="cols">
+          <div>
+            <h3>Profile</h3>
+            <p class="muted">
+              I’m an electronics engineer and lecturer focused on board-level design and embedded systems.
+              I care about practical robustness: power integrity, grounding, measurement accuracy, and clean interfaces.
+            </p>
+            <p class="muted">
+              My portfolio emphasises: <b>design rationale</b>, <b>repeatable bring-up</b>, and <b>test strategy</b> —
+              the things that separate “it works” from “it’s engineered”.
+            </p>
+          </div>
+
+          <div>
+            <h3>What I’m optimising for</h3>
+            <ul class="list">
+              <li>Recruiter-friendly: fast scanning, clear outcomes, clean structure.</li>
+              <li>Engineer-friendly: defensible decisions, constraints, trade-offs.</li>
+              <li>Teaching-ready: diagrams and explanations that stand on their own.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="sectionTitle">
+        <h2>Skills</h2>
+        <div class="hint">Keep this factual, not fluffy.</div>
+      </div>
+
+      <div class="grid">
+        <div class="panel">
+          <h3>Electronics</h3>
+          <ul class="list">
+            <li>Power: buck/LDO selection, protection, sequencing, decoupling strategy</li>
+            <li>Analogue: ADC front-ends, references, filtering, noise/error thinking</li>
+            <li>Layout: partitioning, return paths, planes, high-speed constraints</li>
+            <li>Interfaces: CAN/CAN-FD, Ethernet PHY, USB, UART, SPI, I²C</li>
+          </ul>
+        </div>
+
+        <div class="panel">
+          <h3>Embedded & tooling</h3>
+          <ul class="list">
+            <li>MCUs: STM32 / ESP32 (typical workflows, bring-up and debugging)</li>
+            <li>Firmware: peripheral drivers, comms stacks, test firmware</li>
+            <li>Docs: structured READMEs, test plans, block diagrams</li>
+            <li>Version control: GitHub repos organised for review</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="sectionTitle">
+        <h2>Contact</h2>
+        <div class="hint">Make it easy for people to reach you.</div>
+      </div>
+
+      <div class="panel">
+        <p class="muted">
+          Best ways to reach me:
+        </p>
+        <ul class="list">
+          <!-- Replace placeholders -->
+          <li>LinkedIn: <a href="https://www.linkedin.com/in/naveed-salman-06336283/" target="_blank" rel="noopener">/in/naveed-salman-06336283</a></li>
+          <li>GitHub: <a href="https://github.com/YOUR_GITHUB_USERNAME" target="_blank" rel="noopener">@YOUR_GITHUB_USERNAME</a></li>
+          <li>Email: <span class="mono">your.name [at] domain.com</span></li>
+        </ul>
+
+        <div class="card">
+          <h3>What to include in a message</h3>
+          <p>
+            Role / project context, what you need from me, and a link to any relevant spec or repo.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="small">
+        © <span id="year"></span> Naveed Salman — Portfolio
+      </div>
+      <div class="small">
+        Built as a single-file GitHub Pages site • <span class="mono">index.html</span>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    // Update footer year automatically
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
