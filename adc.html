@@ -36,6 +36,66 @@
     <li><strong>Field bus:</strong> CAN transceiver with proper termination strategy and ESD/TVS protection at the connector.</li>
     <li><strong>Power:</strong> USB 5 V and DC jack input with OR-ing/protection feeding regulated rails for analogue + digital.</li>
   </ul>
+<section class="section">
+  <h2>Power architecture (USB + DC jack)</h2>
+  <p>
+    The board accepts power from either USB (5 V) or a DC jack. The front-end is designed to survive user mistakes
+    (hot-plug, reverse polarity, transients) and to prevent one source back-feeding the other.
+  </p>
+  <ul>
+    <li><strong>Input selection / OR-ing:</strong> prevents backfeed between USB and DC input and supports seamless switchover.</li>
+    <li><strong>Protection:</strong> input TVS where appropriate, inrush limiting / eFuse behaviour (if used), and reverse protection strategy.</li>
+    <li><strong>Rail separation:</strong> analogue rail kept quiet (LDO where needed) vs digital rails sized for switching loads.</li>
+    <li><strong>Grounding intent:</strong> high-current power loops kept away from ADC/reference nodes; short, wide copper for input currents.</li>
+  </ul>
+  <p class="muted">
+    Tip: add a simple power-tree diagram image here (USB/DC → protection/OR → buck/LDO → 3V3_D / 3V3_A / 1V2 etc.).
+  </p>
+</section>
+  <section class="section">
+  <h2>Ethernet implementation (100BASE-TX)</h2>
+  <p>
+    Ethernet routing is treated as a controlled transmission-line problem. The PHY-to-magnetics pairs are routed as a
+    tightly coupled differential pair with controlled impedance and consistent return paths.
+  </p>
+  <ul>
+    <li><strong>Differential impedance:</strong> route TX± and RX± as controlled-impedance differential pairs per stack-up.</li>
+    <li><strong>Intra-pair length matching:</strong> match + and − within each pair to minimise skew.</li>
+    <li><strong>Inter-pair matching:</strong> keep TX pair and RX pair reasonably balanced if required by the PHY/layout guide.</li>
+    <li><strong>Symmetry:</strong> consistent spacing, same number of vias where possible, avoid stubs.</li>
+    <li><strong>Reference plane continuity:</strong> avoid plane splits under the pairs; avoid crossing gaps that force return detours.</li>
+    <li><strong>Placement:</strong> PHY ↔ magnetics kept close; keep noisy power switching away from the pair region.</li>
+  </ul>
+  <p class="muted">
+    Add: a cropped screenshot showing TX/RX pair routing and any serpentine used for matching.
+  </p>
+</section>
+  <section class="section">
+  <h2>CAN bus interface</h2>
+  <p>
+    The CAN interface is designed for real-world wiring and ESD exposure. The layout prioritises short transceiver-to-connector
+    routing, a clean return path, and protection located where it is most effective.
+  </p>
+  <ul>
+    <li><strong>Termination:</strong> provision for 120 Ω termination (on-board or selectable) depending on node position in the bus.</li>
+    <li><strong>Protection:</strong> TVS/ESD protection placed close to the connector to clamp surges before they enter the board.</li>
+    <li><strong>Routing:</strong> CANH/CANL routed as a pair, kept away from sensitive analogue inputs and the reference node.</li>
+    <li><strong>Ground reference:</strong> clear chassis/0V strategy at the connector if exposed to cable shields or chassis ground.</li>
+  </ul>
+  <p class="muted">
+    Add: a photo/screenshot of the CAN connector area showing TVS placement and termination footprint.
+  </p>
+</section>
+  <section class="section">
+  <h2>Signal integrity rules used (impedance & length matching)</h2>
+  <ul>
+    <li><strong>Define constraints from stack-up:</strong> trace width/spacing chosen to meet target single-ended and differential impedance.</li>
+    <li><strong>Match where it matters:</strong> strict intra-pair matching for Ethernet; consistent topology and minimal stubs.</li>
+    <li><strong>Control discontinuities:</strong> limit vias, avoid neck-downs, keep reference plane continuous.</li>
+    <li><strong>Clock / fast edges:</strong> keep away from analogue inputs/reference; avoid parallel runs near high-impedance nodes.</li>
+  </ul>
+</section>
+  
 </section>
     <section class="section">
       <h2>Images</h2>
