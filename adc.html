@@ -1,15 +1,54 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-  <title>ADC Project</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ADC Board — Nav</title>
+  <link rel="stylesheet" href="assets/style.css" />
 </head>
 <body>
+  <main class="wrap">
+    <a class="back" href="index.html">← Back</a>
 
-<h1>ADC Mixed Signal Board</h1>
+    <header class="header">
+      <h1>Precision ADC / Mixed-Signal Board</h1>
+      <p class="sub">Case study: architecture, analogue integrity, layout strategy, validation approach.</p>
+    </header>
 
-<p>Short description here.</p>
+    <section class="section">
+      <h2>Overview</h2>
+      <ul>
+        <li>ΔΣ ADC (e.g., ADS1220) + SPI to MCU</li>
+        <li>Precision 2.5 V reference (e.g., REF5025)</li>
+        <li>Input protection + anti-alias RC filtering</li>
+        <li>4-layer PCB with analogue island + controlled return paths</li>
+      </ul>
+    </section>
 
-<a href="index.html">Back to Home</a>
+    <section class="section">
+      <h2>Images</h2>
+      <p class="muted">Upload images into <code>assets/img/</code> and link them below.</p>
+      <img class="img" src="assets/img/adc-hero.png" alt="ADC board hero (placeholder)" />
+      <img class="img" src="assets/img/adc-pcb.png" alt="ADC PCB excerpt (placeholder)" />
+    </section>
 
+    <section class="section">
+      <h2>Key design decisions</h2>
+      <ul>
+        <li>Reference treated as a sensitive node: short routing + local decoupling + tight return.</li>
+        <li>Analogue vs digital separation: keep SPI/edges away from ADC inputs/reference.</li>
+        <li>Planes/returns: avoid broken return paths; keep loops small.</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>Validation</h2>
+      <ul>
+        <li>Power/rail checks + reference stability under digital activity.</li>
+        <li>Shorted-input noise sanity check + known DC input.</li>
+        <li>Digital aggressor test: increased switching to observe coupling.</li>
+      </ul>
+    </section>
+  </main>
 </body>
 </html>
