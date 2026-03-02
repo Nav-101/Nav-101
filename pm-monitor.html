@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PM Monitor (SPS30 + ESP32 + SD) — Nav</title>
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+
+<body>
+  <main class="wrap">
+    <a class="back" href="index.html">← Back</a>
+
+    <header class="header">
+      <h1>Environmental Particulate Monitor</h1>
+      <p class="sub">SPS30 PM sensor · ESP32 · SD logging · RTC timestamping · Dual power (USB + DC jack)</p>
+    </header>
+
+    <section class="section">
+      <h2>Summary</h2>
+      <p>
+        A standalone particulate matter monitoring node built around the Sensirion SPS30 sensor and an ESP32 MCU.
+        The system supports dual-input power (USB 5 V and DC jack), logs timestamped measurements to a microSD card
+        using an RTC, and provides a simple user interface to select sampling frequency via a push button with LED
+        indication of the active mode.
+      </p>
+      <p class="muted">
+        Note: This project focuses on reliable local logging (no cloud/Wi-Fi dependency).
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>Board images</h2>
+      <p class="muted">Upload images into <code>assets/img/</code> and update the filenames below.</p>
+
+    
+      <img class="img" src="assets/img/pm_sps30.JPG" alt="Board top view (placeholder)" />
+    </section>
+
+    <section class="section">
+      <h2>Schematic excerpts</h2>
+      <p class="muted">Use cropped excerpts (sensor interface, power front-end, SD/RTC sections).</p>
+
+      <!-- Replace these placeholders with your real images -->
+      <img class="img" src="assets/img/sps_foot.JPG" alt="SPS30 interface schematic excerpt (placeholder)" />
+    </section>
+
+    <section class="section">
+      <h2>System architecture</h2>
+      <ul>
+        <li><strong>Sensor:</strong> Sensirion SPS30 particulate matter sensor (digital interface).</li>
+        <li><strong>MCU:</strong> ESP32 (used here as a robust controller; Wi-Fi not required for core operation).</li>
+        <li><strong>Storage:</strong> microSD card logging (SPI).</li>
+        <li><strong>Timekeeping:</strong> RTC used to timestamp every measurement.</li>
+        <li><strong>User interface:</strong> push button to cycle sampling modes + LEDs to indicate selected mode.</li>
+        <li><strong>Power:</strong> USB 5 V + DC jack input with source isolation and regulated rails.</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>Power design (USB + DC jack)</h2>
+      <p>
+        The board accepts either USB 5 V or an external DC input. The power front-end is designed to prevent
+        backfeeding between sources and to provide stable rails for both low-noise sensing and bursty digital loads
+        (ESP32 activity and SD card writes).
+      </p>
+      <ul>
+        <li><strong>Input source handling:</strong> isolation/OR-ing strategy to prevent backfeed.</li>
+        <li><strong>Protection intent:</strong> robustness against hot-plug and basic transients at the connector.</li>
+        <li><strong>Regulation:</strong> 3.3 V domain sized for MCU + SD write bursts; stable supply to sensor domain.</li>
+        <li><strong>Layout intent:</strong> keep high-current loops short and away from sensitive interfaces.</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>Sensor integration (SPS30)</h2>
+      <p>
+        SPS30 integration focuses on reliable digital communications and stable power. Routing and placement are chosen
+        to reduce coupling from fast digital edges into the sensor interface and to keep the design practical for
+        enclosure integration (airflow/placement considerations).
+      </p>
+      <ul>
+        <li>Digital interface routing kept short and tidy.</li>
+        <li>Local decoupling at the sensor supply pins.</li>
+        <li>Connector/enclosure considerations for airflow and mounting (if applicable).</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>Data logging (microSD)</h2>
+      <p>
+        Measurements are logged locally to a microSD card to keep the system independent of network connectivity.
+        Data is stored in a simple structured format (e.g., CSV) with RTC timestamps.
+      </p>
+      <ul>
+        <li><strong>Interface:</strong> SPI-based SD card interface.</li>
+        <li><strong>Reliability:</strong> file write strategy designed to reduce corruption risk.</li>
+        <li><strong>Electrical:</strong> decoupling near SD socket to support write current bursts.</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>RTC timestamping</h2>
+      <p>
+        An RTC provides consistent timestamps for every measurement, ensuring the dataset remains meaningful even if the
+        device is deployed without network time.
+      </p>
+      <ul>
+        <li>Timestamp recorded per sample / per log entry.</li>
+        <li>Battery-backed timekeeping (if implemented) to maintain time across power cycles.</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>User interface: selectable sampling frequency</h2>
+      <p>
+        A push button cycles through predefined sampling modes (e.g., fast/normal/slow). LEDs provide immediate feedback
+        of the active mode without requiring a screen.
+      </p>
+      <ul>
+        <li>Debounced button handling with deterministic state transitions.</li>
+        <li>LED indication mapped to sampling modes for clarity.</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>Validation</h2>
+      <ul>
+        <li>Verified stable boot and operation on both USB and DC input.</li>
+        <li>Confirmed SD logging stability over extended runs.</li>
+        <li>Checked mode switching behaviour and LED indications.</li>
+        <li>Validated RTC timestamp correctness against a reference time source.</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>Improvements for next revision</h2>
+      <ul>
+        <li>Optional power measurement (rail current/voltage logging) for profiling.</li>
+        <li>Improved ESD protection at external connectors if used in harsher environments.</li>
+        <li>Further optimisation of low-power modes (sleep strategy) if battery operation is a target.</li>
+      </ul>
+    </section>
+
+    <footer class="footer">
+      <p class="muted">Selected non-confidential excerpts only. Full details available on request where appropriate.</p>
+    </footer>
+  </main>
+</body>
+</html>
