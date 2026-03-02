@@ -1,191 +1,46 @@
 <!doctype html>
-<html lang="en-GB">
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Naveed Salman — Hardware Portfolio</title>
-  <meta name="description" content="Electronics hardware & embedded systems portfolio: schematics, PCB layout, bring-up notes, and code." />
-
-  <style>
-    :root{
-      --bg:#0b1020; --panel:rgba(255,255,255,.06); --line:rgba(255,255,255,.12);
-      --text:rgba(255,255,255,.92); --muted:rgba(255,255,255,.68);
-      --accent:#77bdfb; --max:1000px; --r:16px;
-      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
-      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-    }
-    *{box-sizing:border-box}
-    body{
-      margin:0; font-family:var(--sans); color:var(--text); background:var(--bg); line-height:1.55;
-    }
-    a{color:inherit}
-    .wrap{max-width:var(--max); margin:0 auto; padding:28px 18px 70px}
-    header{
-      display:flex; gap:18px; align-items:flex-start; justify-content:space-between; flex-wrap:wrap;
-      border:1px solid var(--line); background:var(--panel); border-radius:var(--r); padding:18px;
-    }
-    h1{margin:0 0 6px; font-size:1.8rem}
-    .muted{color:var(--muted)}
-    .row{display:flex; gap:10px; flex-wrap:wrap; margin-top:10px}
-    .btn{
-      display:inline-flex; align-items:center; justify-content:center;
-      padding:9px 12px; border-radius:12px; border:1px solid var(--line);
-      background:rgba(255,255,255,.04); text-decoration:none;
-    }
-    .btn:hover{background:rgba(255,255,255,.07)}
-    .btn.primary{border-color:rgba(119,189,251,.5)}
-    .section{margin-top:22px}
-    .section h2{margin:0 0 10px; font-size:1.2rem}
-    .grid{display:grid; grid-template-columns:1fr 1fr; gap:14px}
-    @media (max-width: 860px){ .grid{grid-template-columns:1fr} }
-
-    .card{
-      border:1px solid var(--line); background:var(--panel); border-radius:var(--r); padding:14px;
-    }
-    .card h3{margin:0 0 6px; font-size:1.05rem}
-    .tags{display:flex; gap:8px; flex-wrap:wrap; margin:10px 0}
-    .tag{
-      font-family:var(--mono); font-size:.82rem; padding:3px 8px; border-radius:999px;
-      border:1px solid var(--line); background:rgba(0,0,0,.25); color:rgba(255,255,255,.75);
-    }
-
-    /* image placeholder */
-    .thumb{
-      width:100%; aspect-ratio: 16/9;
-      border:1px dashed rgba(255,255,255,.25);
-      border-radius:12px;
-      background: rgba(255,255,255,.03);
-      display:flex; align-items:center; justify-content:center;
-      color: rgba(255,255,255,.55);
-      overflow:hidden;
-    }
-    .thumb img{width:100%; height:100%; object-fit:cover; display:block}
-    footer{
-      margin-top:32px; padding-top:14px; border-top:1px solid var(--line);
-      color:rgba(255,255,255,.45); display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap;
-    }
-  </style>
+  <title>Nav — Hardware Portfolio</title>
+  <link rel="stylesheet" href="assets/style.css" />
 </head>
-
 <body>
   <main class="wrap">
-
-    <!-- HEADER -->
-    <header>
-      <div>
-        <h1>Naveed Salman</h1>
-        <div class="muted">Electronics hardware • Embedded systems • Mixed-signal design</div>
-        <div class="muted" style="margin-top:8px; max-width:70ch">
-          Portfolio of selected boards with schematics, PCB layout images, bring-up notes, and firmware/code where relevant.
-        </div>
-
-        <div class="row">
-          <a class="btn primary" href="#projects">Projects</a>
-          <a class="btn" href="https://www.linkedin.com/in/naveed-salman-06336283/" target="_blank" rel="noopener">LinkedIn</a>
-          <a class="btn" href="https://github.com/YOUR_GITHUB_USERNAME" target="_blank" rel="noopener">GitHub</a>
-          <a class="btn" href="#contact">Contact</a>
-        </div>
-      </div>
-
-      <!-- Optional hero image -->
-      <div style="min-width:280px; flex:1; max-width:420px">
-        <!-- Replace the placeholder with an image when ready -->
-        <div class="thumb">
-          <!-- Example: <img src="assets/img/hero.jpg" alt="Portfolio hero image" /> -->
-          <span>Hero image placeholder (optional)</span>
-        </div>
-      </div>
+    <header class="header">
+      <h1>Nav</h1>
+      <p class="sub">Electronics & Embedded · Mixed-signal · Power · Bring-up</p>
+      <p class="links">
+        <a href="https://www.linkedin.com/in/naveed-salman-06336283/" target="_blank" rel="noreferrer">LinkedIn</a>
+        <span>·</span>
+        <a href="#projects">Projects</a>
+      </p>
     </header>
 
-    <!-- PROJECTS -->
     <section id="projects" class="section">
       <h2>Projects</h2>
 
-      <div class="grid">
+      <article class="card">
+        <div>
+          <h3>Precision ADC / Mixed-Signal Board</h3>
+          <p>ΔΣ ADC + precision reference + analogue filtering + layout/return-path strategy.</p>
+          <p><a class="btn" href="adc.html">Open case study →</a></p>
+        </div>
+      </article>
 
-        <!-- PROJECT CARD (copy/paste this block to add more) -->
-        <article class="card">
-          <h3>ADC Daughter Board</h3>
-          <div class="muted">Precision measurement chain with ΔΣ ADC + reference + filtering.</div>
-
-          <div class="tags">
-            <span class="tag">ADS1220</span>
-            <span class="tag">REF5025</span>
-            <span class="tag">Layout</span>
-          </div>
-
-          <div class="thumb" style="margin:10px 0 10px">
-            <!-- Replace with your thumbnail -->
-            <!-- <img src="assets/img/adc_top.png" alt="ADC board top view" /> -->
-            <span>Thumbnail placeholder (PCB top / block diagram)</span>
-          </div>
-
-          <div class="row">
-            <a class="btn" href="projects/adc.html">Project page</a>
-            <a class="btn" href="assets/pdf/adc_schematic.pdf" target="_blank" rel="noopener">Schematic (PDF)</a>
-            <a class="btn" href="https://github.com/YOUR_GITHUB_USERNAME/YOUR_REPO" target="_blank" rel="noopener">Repo</a>
-          </div>
-        </article>
-
-        <article class="card">
-          <h3>SmartPowerGuardian</h3>
-          <div class="muted">System-level mixed-signal board: power + MCU + CAN + Ethernet.</div>
-
-          <div class="tags">
-            <span class="tag">Power</span>
-            <span class="tag">STM32</span>
-            <span class="tag">CAN</span>
-          </div>
-
-          <div class="thumb" style="margin:10px 0 10px">
-            <span>Thumbnail placeholder (board render / layout)</span>
-          </div>
-
-          <div class="row">
-            <a class="btn" href="projects/power-guardian.html">Project page</a>
-            <a class="btn" href="#" title="Add when ready">Schematic (PDF)</a>
-            <a class="btn" href="#" title="Add when ready">Repo</a>
-          </div>
-        </article>
-
-      </div>
+      <article class="card placeholder">
+        <div>
+          <h3>[Next project placeholder]</h3>
+          <p>Add your next board here (power front-end, CAN/ETH, etc.).</p>
+          <p><span class="muted">Link coming soon</span></p>
+        </div>
+      </article>
     </section>
 
-    <!-- ABOUT -->
-    <section class="section">
-      <h2>What I include in each project</h2>
-      <div class="card">
-        <ul style="margin:0; padding-left:18px; color:rgba(255,255,255,.78)">
-          <li>1-page overview + key specs</li>
-          <li>Schematic (PDF) + important snippets as images</li>
-          <li>PCB top/bottom + critical layout zones (images)</li>
-          <li>Bring-up checklist + test notes</li>
-          <li>Firmware/code if relevant</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact" class="section">
-      <h2>Contact</h2>
-      <div class="card">
-        <div class="muted">Replace placeholders with your actual details.</div>
-        <ul style="margin:10px 0 0; padding-left:18px; color:rgba(255,255,255,.78)">
-          <li>LinkedIn: <a href="https://www.linkedin.com/in/naveed-salman-06336283/" target="_blank" rel="noopener">/in/naveed-salman-06336283</a></li>
-          <li>GitHub: <a href="https://github.com/YOUR_GITHUB_USERNAME" target="_blank" rel="noopener">@YOUR_GITHUB_USERNAME</a></li>
-          <li>Email: <span style="font-family:var(--mono)">your.name [at] domain.com</span></li>
-        </ul>
-      </div>
-    </section>
-
-    <footer>
-      <div>© <span id="y"></span> Naveed Salman</div>
-      <div class="muted">Single-file site • images in <span style="font-family:var(--mono)">/assets/img</span> • PDFs in <span style="font-family:var(--mono)">/assets/pdf</span></div>
+    <footer class="footer">
+      <p class="muted">Selected non-confidential excerpts only. Full details available under NDA where appropriate.</p>
     </footer>
   </main>
-
-  <script>
-    document.getElementById("y").textContent = new Date().getFullYear();
-  </script>
 </body>
 </html>
