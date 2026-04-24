@@ -15,5 +15,5 @@ I specialize in architecting complex embedded systems, from high-efficiency powe
 ### 💾 [H7 Industrial Gateway](link-to-your-H7-repo)
 An 8-layer STM32H743 based system featuring shared-bus SDRAM and Parallel NOR Flash.
 
-### 🔌 [Old Project Name 1](link-to-your-other-repo)
+### 🔌 [Old Project Mixed Signal Design](https://github.com/Nav-101/Mixed-Signal-Board)
 A brief one-sentence technical highlight of what this board does.
