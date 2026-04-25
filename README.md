@@ -17,3 +17,9 @@ An 8-layer STM32H743 based system featuring shared-bus SDRAM and Parallel NOR Fl
 
 ### 🔌 [Mixed Signal Design](https://nav-101.github.io/Mixed-Signal-Board/)
 An analogue and high speed digital mixed signal 4 layer baord
+
+### 🔌 [Environmental Particulate Monitor](https://nav-101.github.io/Environmental-Particulate-Monitor/)
+An analogue and high speed digital mixed signal 4 layer baord
+
+
+
