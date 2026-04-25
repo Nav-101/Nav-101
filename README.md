@@ -1,3 +1,5 @@
+# Nav | Hardware Systems Engineer
+![Project Banner](./media/h7-render.png)
 # Hi, I'm Nav 👋
 ### Hardware & High-Speed Digital Systems Engineer 
 
