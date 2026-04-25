@@ -1,4 +1,4 @@
-![Nav Profile](./profile-pic.png)
+![Nav Profile](./1747506353932.JPG)
 # Hi, I'm Nav 👋
 ### Hardware & High-Speed Digital Systems Engineer 
 
