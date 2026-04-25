@@ -1,5 +1,4 @@
-# Nav | Hardware Systems Engineer
-![Project Banner](./post-your-favorite-artemis-ii-images-here-v0-k3miqjpcostg1.webp)
+![Nav Profile](./profile-pic.png)
 # Hi, I'm Nav 👋
 ### Hardware & High-Speed Digital Systems Engineer 
 
