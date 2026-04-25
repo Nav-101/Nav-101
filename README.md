@@ -13,7 +13,7 @@ I specialize in architecting complex embedded systems, from high-efficiency powe
 ## 🚀 Featured Hardware Projects
 *Click the links below to see the full technical documentation.*
 
-### 💾 [https://nav-101.github.io/H7-Industrial-Gateway/)
+### 💾 [High speed Industrial Gateway](https://nav-101.github.io/H7-Industrial-Gateway/)
 An 8-layer STM32H743 based system featuring shared-bus SDRAM and Parallel NOR Flash.
 
 ### 🔌 [Mixed Signal Design](https://nav-101.github.io/Mixed-Signal-Board/)
