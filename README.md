@@ -1,6 +1,4 @@
 <img src="./1747506353932.JPG" width="150" align="right" style="margin-left: 20px; border-radius: 50%;">
-# Nav
-
 ## Embedded Hardware and PCB Design Engineer
 
 I design embedded electronic systems involving multilayer PCBs, mixed-signal
