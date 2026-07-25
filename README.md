@@ -17,7 +17,7 @@ research, industrial and educational applications.
 My current hardware work focuses on multilayer PCB design, mixed-signal acquisition,
 external memory, power-distribution design, high-speed digital interfaces and industrial
 communications.
-
+<a href="assets/Naveed_Salman_CV.pdf" target="_blank">View CV</a>
 [View CV](assets/pdf/Resume_NS2_I.pdf) ·
 [LinkedIn](https://www.linkedin.com/in/naveed-salman-06336283/) ·
 [Email](mailto:engr.naveed_101@hotmail.com)
