@@ -1,13 +1,17 @@
 <img src="./1747506353932.JPG" width="150" align="right" style="margin-left: 20px; border-radius: 50%;">
-# Hi, I'm Nav 👋
-### Hardware & High-Speed Digital Systems Engineer 
+# Nav
 
-I specialize in architecting complex embedded systems, from high-efficiency power stages to multi-gigabit memory interfaces.
+## Embedded Hardware and PCB Design Engineer
 
-- 🛠️ **Currently Designing:** An Industrial STM32H7 Gateway with 8-layer BGA routing.
-- 📐 **Expertise:** KiCad 10, High-Speed Bus Architecture (SDRAM/NOR Flash), Precision Analog.
-- ⚡ **Power Logic:** Buck/Boost conversion, TVS protection, and Low-Noise LDO rails.
+I design embedded electronic systems involving multilayer PCBs, mixed-signal
+acquisition, external memory, power conversion and industrial communication
+interfaces.
 
+My current flagship project is a 10-layer STM32H743 BGA gateway integrating
+SDRAM, parallel NOR flash, USB High-Speed, Ethernet, CAN, RS-485, precision
+analogue acquisition and audio.
+
+[LinkedIn](YOUR-LINK) · [CV](YOUR-CV-LINK) · [Email](mailto:YOUR-EMAIL)
 ---
 
 ## 🚀 Featured Hardware Projects
