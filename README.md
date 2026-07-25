@@ -1,15 +1,28 @@
 <img src="./1747506353932.JPG" width="150" align="right" style="margin-left: 20px; border-radius: 50%;">
-## Embedded Hardware and PCB Design Engineer
+# Naveed Salman, PhD
 
-I design embedded electronic systems involving multilayer PCBs, mixed-signal
-acquisition, external memory, power conversion and industrial communication
-interfaces.
+## Electronics and Systems Engineer
 
-My current flagship project is a 10-layer STM32H743 BGA gateway integrating
-SDRAM, parallel NOR flash, USB High-Speed, Ethernet, CAN, RS-485, precision
-analogue acquisition and audio.
+**Embedded Hardware · Mixed-Signal Design · Wireless Communications · Signal Processing · Systems Engineering**
 
-[LinkedIn](YOUR-LINK) · [CV](YOUR-CV-LINK) · [Email](mailto:YOUR-EMAIL)
+I am an electronics and systems engineer with over a decade of experience spanning
+embedded hardware, wireless sensing, signal processing, estimation algorithms and
+system-level engineering.
+
+My work combines practical electronic design with a strong analytical background.
+I have developed embedded sensing platforms, wireless monitoring systems, localisation
+and tracking algorithms, data-assimilation methods, and engineering solutions for
+research, industrial and educational applications.
+
+My current hardware work focuses on multilayer PCB design, mixed-signal acquisition,
+external memory, power-distribution design, high-speed digital interfaces and industrial
+communications.
+
+[View CV](assets/Naveed_Salman_CV.pdf) ·
+[LinkedIn](https://www.linkedin.com/in/naveed-salman-06336283/) ·
+[Email](mailto:engr.naveed_101@hotmail.com)
+
+
 ---
 
 ## 🚀 Featured Hardware Projects
