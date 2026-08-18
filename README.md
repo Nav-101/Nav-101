@@ -20,7 +20,7 @@ communications.
 
 [View CV](assets/pdf/Resume_NS2_I.pdf) ·
 [LinkedIn](https://www.linkedin.com/in/naveed-salman-06336283/) ·
-[Email](mailto:engr.naveed_101@hotmail.com)
+[Email](mailto:engr.naveed_101@hotmail.com) .
 [Certification](137c855d77506c8597686e608.pdf)
 
 ---
