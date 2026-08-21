@@ -28,6 +28,9 @@ communications.
 ## 🚀 Featured Hardware Projects
 *Click the links below to see the full technical documentation.*
 
+### 💾 [ROCKY SBC: Custom RK3568 Linux Single-Board Computer](https://nav-101.github.io/RK3568-Linux-Single-Board-Computer/)
+ROCKY is a custom single-board computer based on the Rockchip RK3568 application processor.
+
 ### 💾 [High speed Industrial Gateway](https://nav-101.github.io/H7-Industrial-Gateway/)
 A 10-layer STM32H743 based system featuring shared-bus SDRAM and Parallel NOR Flash.
 
